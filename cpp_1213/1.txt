@@ -1,0 +1,12 @@
+1
+_name = Georgy
+_age = 31
+_prof = Cassier
+2
+_name = Anna
+_age = 31
+_prof = Cassier
+3
+_name = Valentine
+_age = 13
+_prof = Programmer
