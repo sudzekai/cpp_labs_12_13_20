@@ -269,47 +269,55 @@ public:
         return _hours * 3600 + _minutes * 60 + _seconds;
     }
     
-    int operator[](int index) {
-        switch (index)
-        {
-        case 1:
-            return _hours;
-            break;
-        case 2:
-            return _minutes;
-            break;
-        case 3:
-            return _seconds;
-            break;
-        default:
-            return -1;
-            break;
-        }
-    }
+    int& operator[](const int index);
 
-    const int operator[](const int index) const {
-        switch (index)
-        {
-        case 1:
-            return _hours;
-            break;
-        case 2:
-            return _minutes;
-            break;
-        case 3:
-            return _seconds;
-            break;
-        default:
-            return -1;
-            break;
-        }
-    }
+    const int& operator[](const int index) const;
 
     string ToString() {
         return format("{}:{}:{}", (to_string(_hours).length() == 1) ? "0" + to_string(_hours) : to_string(_hours), (to_string(_minutes).length() == 1) ? "0" + to_string(_minutes) : to_string(_minutes), (to_string(_seconds).length() == 1) ? "0" + to_string(_seconds) : to_string(_seconds));
         
     }
 };
+
+
+int& Time::operator[](const int index) {
+    int i = -1;
+    switch (index)
+    {
+    case 1:
+        return _hours;
+        break;
+    case 2:
+        return _minutes;
+        break;
+    case 3:
+        return _seconds;
+        break;
+    default:
+        return i;
+        break;
+    }
+}
+
+const int& Time::operator[](const int index) const {
+    switch (index)
+    {
+    case 1:
+        return _hours;
+        break;
+    case 2:
+        return _minutes;
+        break;
+    case 3:
+        return _seconds;
+        break;
+    default:
+        return -1;
+        break;
+    }
+}
+
+
 
 void Lab20() {
     Time time;
